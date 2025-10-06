@@ -1,0 +1,4 @@
+
+from EstruturaDados import Deque
+
+
