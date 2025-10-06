@@ -15,6 +15,7 @@ class Jogador(pygame.sprite.Sprite):
         self.prontoAtaque = True
         self.prontoSpecial = True
         
+        
         def entradas_jogador(self):
             keys = pygame.key.get_pressed() # Verifica as teclas pressionadas
             
