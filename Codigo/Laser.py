@@ -6,12 +6,20 @@ Created on 5 de out. de 2025
 import pygame
 class Laser(pygame.sprite.Sprite):
     
-    def __init__(self, pos_x, pos_y):
+    def __init__(self, posicao, velocidade, altura_tela):
         super().__init__()
-        self.image = pygame.image.load('Imagens/Laser.png').convert_alpha() # Carrega a imagem do laser
-        self.rect = pygame.Rect(pos_x, pos_y, self.image.get_width(), self.image.get_height()) # Define a posição inicial do laser
-        self.velocidade = 10 # Define a velocidade do laser
+        self.image = pygame.Surface((5, 20)) # Tamanho do laser
+        self.image.fill((255, 0, 0))  # Cor vermelha para o laser
+        self.rect = self.image.get_rect(center=posicao) # Posição inicial do laser
+        self.velocidade = velocidade  # Velocidade do laser (negativa para cima, positiva para baixo)
         
-        
+        self.altura_tela = altura_tela  # Altura da tela para remover o laser quando sair da tela
+    
+    
+    def destruir(self):
+        if self.rect.bottom < 0 or self.rect.top > self.altura_tela: # Verifica se o laser saiu da tela
+            self.kill() # Remove o laser do grupo de sprites
+            
     def update(self):
         self.rect.y += self.velocidade
+        self.destruir()
