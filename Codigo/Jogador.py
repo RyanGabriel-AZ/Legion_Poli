@@ -1,11 +1,6 @@
 
-
-
-
-
 import pygame
-import sys
-from ataquePersonagem import AtaquePersonagem 
+from ataquePersonagem import AtaquePersonagem
 
 
 class Jogador(pygame.sprite.Sprite):
@@ -75,7 +70,7 @@ class Jogador(pygame.sprite.Sprite):
                     
         def atacar(self):
             if self.prontoAtaque:
-                Ataque = Ataque(self.rect.centerx, self.rect.top, self.controle_Max_y, 10)
+                Ataque = AtaquePersonagem(self.rect.centerx, self.rect.top, self.controle_Max_y, 10)
                 self.ataque.add(Ataque) # Adiciona um ataque ao grupo de ataques
                 # O ataque é criado na posição do personagem (self.rect.centerx, self.rect.top)
                 # e se move para cima com velocidade 10

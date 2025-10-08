@@ -5,6 +5,7 @@ Created on 5 de out. de 2025
 '''
 import pygame
 
+
 class Inimigo(pygame.sprite.Sprite):
     
     def __init__(self, pos_x, pos_y, limite_X , limite_Y):
