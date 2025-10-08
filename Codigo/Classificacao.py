@@ -1,4 +1,4 @@
 
-from EstruturaDados import Deque
+
 
 

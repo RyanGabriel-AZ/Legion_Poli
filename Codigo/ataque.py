@@ -1,12 +1,8 @@
-'''
-Created on 5 de out. de 2025
 
-@author: albuq
-'''
 import pygame
 
 
-class AtaquePersonagem(pygame.sprite.Sprite):
+class Ataque(pygame.sprite.Sprite):
     
     def __init__(self, pos_x, pos_y, altura_tela,  velocidade):
         super().__init__()

@@ -4,6 +4,8 @@ Created on 5 de out. de 2025
 @author: albuq
 '''
 import pygame
+
+
 class Laser(pygame.sprite.Sprite):
     
     def __init__(self, posicao, velocidade, altura_tela):

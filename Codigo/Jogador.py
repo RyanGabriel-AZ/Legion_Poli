@@ -1,15 +1,19 @@
-'''
-Created on 5 de out. de 2025
 
-@author: albuq
-'''
+
+
+
+
 import pygame
-from AtaquePersonagem import AtaquePersonagem
+import sys
+from ataquePersonagem import AtaquePersonagem 
+
+
 class Jogador(pygame.sprite.Sprite):
 
         def __init__(self, posicao_x, controle_Max_x,posicao_y, controle_Max_y,  velocidade):
             super().__init__()
-            self.image = pygame.image.load('Imagens/Personagem.png').convert_alpha() # Carrega a imagem do personagem
+            self.image = pygame.image.load('Imagens/galinha.jpeg').convert_alpha() # Carrega a imagem do personagem
+            self.image.set_colorkey((0, 0, 0)) # Define a cor de fundo da imagem como transparente
             self.rect = self.image.get_rect(midbottom=(posicao_x, posicao_y)) # Define a posição inicial do personagem
             self.controle_Max_x = controle_Max_x # Delimita a constante x maxima que o personagem pode ir
             self.velocidade = velocidade # Define a velocidade do personagem
@@ -71,7 +75,8 @@ class Jogador(pygame.sprite.Sprite):
                     
         def atacar(self):
             if self.prontoAtaque:
-                self.ataque.add(AtaquePersonagem(self.rect.centerx, self.rect.top, self.controle_Max_y, 10)) # Adiciona um ataque ao grupo de ataques
+                Ataque = Ataque(self.rect.centerx, self.rect.top, self.controle_Max_y, 10)
+                self.ataque.add(Ataque) # Adiciona um ataque ao grupo de ataques
                 # O ataque é criado na posição do personagem (self.rect.centerx, self.rect.top)
                 # e se move para cima com velocidade 10
                 
