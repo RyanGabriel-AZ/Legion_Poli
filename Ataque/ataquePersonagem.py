@@ -15,7 +15,7 @@ class AtaquePersonagem(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(center = (pos_x, pos_y)) # Define a posição inicial do ataque do personagem
         self.velocidade = velocidade # Define a velocidade do ataque do personagem
         self.altura_tela = altura_tela
-        self.largura = self.image.get_width()
+    
     def destruir(self):
         if self.rect.bottom < 0 or self.rect.top > self.altura_tela:
             self.kill()
