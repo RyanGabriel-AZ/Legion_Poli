@@ -11,7 +11,7 @@ class Inimigo(pygame.sprite.Sprite):
     def __init__(self, pos_x, pos_y, limite_X , limite_Y):
         super().__init__()
         self.imagem = pygame.image.load('Imagens/nave.jpeg').convert() # Carrega a imagem do inimigo
-        self.image.set_colorkey((0, 0, 0)) # Define a cor de fundo da imagem como transparente
+        self.imagem.set_colorkey((0, 0, 0)) # Define a cor de fundo da imagem como transparente
         self.limite_X = limite_X # Define o limite X do inimigo
         self.limite_Y = limite_Y # Define o limite Y do inimigo
         self.velocidade = 4# Define a velocidade do inimigo

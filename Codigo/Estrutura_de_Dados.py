@@ -99,7 +99,7 @@ class ListaEncandeada():
                         anterior = atual
                         atual = atual.proximo
 
-                break
+                    break
             
     def remover_inicio(self):
         
@@ -143,7 +143,7 @@ class Deque(ListaEncandeada):
         
 class Fila(ListaEncandeada):
     def __init__(self, limite):
-        super().__init__()
+        super().__init__(limite)
         self.limite = limite
         
         
