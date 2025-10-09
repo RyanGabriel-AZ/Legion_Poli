@@ -64,7 +64,7 @@ class Game:
 
         # Evento de spawn de aliens
         self.EVENTO_ALIEN = pygame.USEREVENT + 1
-        pygame.time.set_timer(self.EVENTO_ALIEN, 1500) #Aqui manipulamos de quanto em quanto tempo o alien nasce
+        pygame.time.set_timer(self.EVENTO_ALIEN, 700) #Aqui manipulamos de quanto em quanto tempo o alien nasce
 
         # Carregar ranking
         carregar_ranking_fila(ranking)
@@ -171,6 +171,11 @@ class Game:
             self.atualizar_pontos()
 
             # Desenhar
+            self.jogador.draw(self.tela)
+            self.jogador.sprite.ataque.draw(self.tela)
+            for alien in self.alien:
+                alien.lasers.draw(self.tela)
+            self.alien.draw(self.tela)
 
             self.jogador.draw(self.tela) #desenha o jogador
             self.alien.draw(self.tela) #desenha oo alien
