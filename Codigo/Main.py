@@ -71,8 +71,8 @@ class Game:
 
     # --- Spawn de alien aleatório ---
     def spawn_alien(self): #Aqui faremos um spawn aleatorio de alien, na posicao x, y=0
-        x_pos = random.randint(0, int(Largura_tela-Inimigo(0,0,0,0).largura()))
-        novo_alien = Inimigo(x_pos, 0, 6)  # velocidade 3
+        x_pos = random.randint(0, (Largura_tela-Inimigo(0,0,0,0).largura))
+        novo_alien = Inimigo(x_pos, 0, Largura_tela, Altura_tela)  # velocidade 3
         self.alien.add(novo_alien)
 
     # --- Colisões ---

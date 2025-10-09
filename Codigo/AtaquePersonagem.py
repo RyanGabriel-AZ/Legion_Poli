@@ -12,6 +12,7 @@ class AtaquePersonagem(pygame.sprite.Sprite):
         super().__init__()
         self.image = pygame.image.load('Imagens/ovo.jpeg').convert() # Carrega a imagem do ataque do personagem
         self.image.set_colorkey((0, 0, 0)) # Define a cor de fundo da imagem como transparente
+        self.image = pygame.transform.scale(self.image, (10, 15))
         self.rect = self.image.get_rect(center = (pos_x, pos_y)) # Define a posição inicial do ataque do personagem
         self.velocidade = velocidade # Define a velocidade do ataque do personagem
         self.altura_tela = altura_tela

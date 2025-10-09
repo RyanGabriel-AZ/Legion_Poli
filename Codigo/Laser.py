@@ -10,7 +10,7 @@ class Laser(pygame.sprite.Sprite):
     
     def __init__(self, posicao, velocidade, altura_tela):
         super().__init__()
-        self.image = pygame.Surface((5, 20)) # Tamanho do laser
+        self.image = pygame.Surface((5, 10)) # Tamanho do laser
         self.image.fill((255, 0, 0))  # Cor vermelha para o laser
         self.rect = self.image.get_rect(center=posicao) # Posição inicial do laser
         self.velocidade = velocidade  # Velocidade do laser (negativa para cima, positiva para baixo)
