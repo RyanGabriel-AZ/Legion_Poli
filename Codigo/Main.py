@@ -58,8 +58,9 @@ class Game:
         self.alien = pygame.sprite.Group()
         self.alien_lasers = pygame.sprite.Group()
         #musica
+        pygame.mixer.init()
         musica = pygame.mixer.Sound("Sons/musica.wav")
-        musica.set_volume(0.5)
+        musica.set_volume(0.8)
         musica.play(loops=-1)
         # Pontuação
         self.pontos = 0
@@ -67,7 +68,7 @@ class Game:
 
         # Evento de spawn de aliens
         self.EVENTO_ALIEN = pygame.USEREVENT + 1
-        pygame.time.set_timer(self.EVENTO_ALIEN, 600) #Aqui manipulamos de quanto em quanto tempo o alien nasce
+        pygame.time.set_timer(self.EVENTO_ALIEN, 500) #Aqui manipulamos de quanto em quanto tempo o alien nasce
 
         # Carregar ranking
         carregar_ranking_fila(ranking)
@@ -170,10 +171,16 @@ class Game:
             self.jogador.update()
             self.alien.update()
 
-            self.colisoes()
-            self.atualizar_pontos()
 
+            self.atualizar_pontos()
+            #adicionei agora
+            self.alien_lasers.empty()
+            for alien in self.alien:
+                self.alien_lasers.add(alien.laser)
+
+            self.colisoes()
             # Desenhar
+
             self.jogador.draw(self.tela)
             self.jogador.sprite.ataque.draw(self.tela)
             for alien in self.alien:
@@ -183,7 +190,7 @@ class Game:
             self.jogador.draw(self.tela) #desenha o jogador
             self.alien.draw(self.tela) #desenha oo alien
             self.alien_lasers.draw(self.tela) #o ataque
-            pontos_text = self.fonte.render(f"Pontos: {self.pontos}", True, (255,255,0))
+            pontos_text = self.fonte.render(f"Pontos: {self.pontos}", True, (0,0,0))
             self.tela.blit(pontos_text, (10,10))
 
             pygame.display.flip()

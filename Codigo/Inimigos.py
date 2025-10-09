@@ -45,11 +45,13 @@ class Inimigo(pygame.sprite.Sprite):
             self.laser_som.play()
             self.pode_atirar = False
             self.tempo_ataque = pygame.time.get_ticks()
+            self.atirar = False
             # O ataque é criado na posição do personagem (self.rect.centerx, self.rect.top)
             # e se move para cima com velocidade 10
 
     def update(self):
         self.rect.y += self.velocidade
-        self.atirar_laser()
         self.recarga()
+        self.atirar_laser()
+
         self.lasers.update()
