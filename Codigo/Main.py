@@ -29,10 +29,15 @@ def carregar_ranking_fila(fila, arquivo="Ranking/ranking.ssv"):
     try:
         with open(arquivo, "r") as f:
             for linha in f:
-                nome, pontuacao = linha.strip().split(";")
+                linha = linha.strip()
+                if not linha or ";" not in linha:
+                    continue  # ignora linhas vazias ou mal formatadas
+                nome, pontuacao = linha.split(";")
                 fila.ordenar_elemento_decrescente((int(pontuacao), nome))
     except FileNotFoundError:
         pass
+    except Exception as e:
+        print(f"Erro ao carregar ranking: {e}")
 
 def salvar_ranking_fila(fila, arquivo="Ranking/ranking.ssv"):
    try:
@@ -180,7 +185,7 @@ class Game:
             #adicionei agora
             self.alien_lasers.empty()
             for alien in self.alien:
-                self.alien_lasers.add(alien.laser)
+                self.alien_lasers.add(alien.lasers)
 
             self.colisoes()
             # Desenhar
