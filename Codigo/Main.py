@@ -57,14 +57,17 @@ class Game:
         # Inimigos
         self.alien = pygame.sprite.Group()
         self.alien_lasers = pygame.sprite.Group()
-
+        #musica
+        musica = pygame.mixer.Sound("Sons/musica.wav")
+        musica.set_volume(0.5)
+        musica.play(loops=-1)
         # Pontuação
         self.pontos = 0
         self.fonte = pygame.font.SysFont('arial', 30)
 
         # Evento de spawn de aliens
         self.EVENTO_ALIEN = pygame.USEREVENT + 1
-        pygame.time.set_timer(self.EVENTO_ALIEN, 700) #Aqui manipulamos de quanto em quanto tempo o alien nasce
+        pygame.time.set_timer(self.EVENTO_ALIEN, 600) #Aqui manipulamos de quanto em quanto tempo o alien nasce
 
         # Carregar ranking
         carregar_ranking_fila(ranking)
@@ -150,7 +153,7 @@ class Game:
 
     def atualizar_pontos(self):
         tempo_passado = (pygame.time.get_ticks() - self.tempo_inicial)//1000
-        self.pontos += tempo_passado*10
+        self.pontos += tempo_passado
 
     #  Loop principal ---
     def run(self):
@@ -166,7 +169,7 @@ class Game:
 
             self.jogador.update()
             self.alien.update()
-            self.alien_lasers.update()
+
             self.colisoes()
             self.atualizar_pontos()
 

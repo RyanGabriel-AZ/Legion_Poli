@@ -195,8 +195,11 @@ class Fila(ListaEncandeada):
                 self.inserir_inicio(dado)
                 self.limite__fila()
                 return
-            elif dado <= self.cauda.dado:
-                return 
+            elif dado <= self.cauda.dado and self.tamanho == self.limite:
+                return
+            elif dado <= self.cauda.dado: # Gabiarra estilo Deque
+                super().inserir_final(dado)
+
             else:
                 no = No(dado)
                 atual = self.cabeca

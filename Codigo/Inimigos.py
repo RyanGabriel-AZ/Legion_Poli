@@ -22,7 +22,7 @@ class Inimigo(pygame.sprite.Sprite):
     # o rect é um retângulo que envolve a imagem do inimigo e é usado para detectar colisões
         self.atirar = True # Define se o inimigo pode atirar
         self.tempo_ataque = 0 # Define o tempo de ataque do inimigo
-        self.carregar_ataque = 500 # Define o tempo de carregamento do ataque do inimigo
+        self.carregar_ataque = 5000 # Define o tempo de carregamento do ataque do inimigo
         self.largura = self.image.get_width()
         self.laser = pygame.sprite.Group() # Cria um grupo de lasers para o inimigo
         self.laser_som= pygame.mixer.Sound('Sons/laser.wav') # Carrega o som do laser
