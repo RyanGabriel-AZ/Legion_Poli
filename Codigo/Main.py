@@ -3,7 +3,7 @@ Created on 5 de out. de 2025
 
 @author: albuq
 '''
-
+import os
 import sys
 import pygame
 import random
@@ -35,13 +35,17 @@ def carregar_ranking_fila(fila, arquivo="Ranking/ranking.ssv"):
         pass
 
 def salvar_ranking_fila(fila, arquivo="Ranking/ranking.ssv"):
-    with open(arquivo, "w") as f:
-        atual = fila.cabeca
-        while atual:
-            pontuacao, nome = atual.dado
-            f.write(f"{nome};{pontuacao}\n")
-            atual = atual.proximo
-
+   try:
+        with open(arquivo, "w") as f:
+            atual = fila.cabeca
+            while atual:
+                pontuacao, nome = atual.dado
+                f.write(f"{nome};{pontuacao}\n")
+                atual = atual.proximo
+            f.flush()
+            os.fsync(f.fileno())
+   except Exception as e:
+       print(f"erro ao salvar:  {e}" )
 
 class Game:
     def __init__(self, tela):
@@ -60,7 +64,7 @@ class Game:
         #musica
         pygame.mixer.init()
         musica = pygame.mixer.Sound("Sons/musica.wav")
-        musica.set_volume(0.8)
+        musica.set_volume(0.6)
         musica.play(loops=-1)
         # Pontuação
         self.pontos = 0

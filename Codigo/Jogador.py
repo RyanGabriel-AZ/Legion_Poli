@@ -17,7 +17,7 @@ class Jogador(pygame.sprite.Sprite):
             self.prontoAtaque = True
             self.prontoSpecial = True
             self.tempo_ataque = 0 # Define o tempo de ataque do personagem
-            self.carregar_ataque = 200 # Define o tempo de carregamento do ataque do personagem
+            self.carregar_ataque = 500 # Define o tempo de carregamento do ataque do personagem
         
             self.ataque = pygame.sprite.Group() # Cria um grupo de ataques para o personagem
         
