@@ -194,6 +194,6 @@ if __name__ == '__main__':
     pygame.init()
     tela = pygame.display.set_mode((Largura_tela, Altura_tela))
     game = Game(tela)
-    game.run()
+    game.run() #
 
 
